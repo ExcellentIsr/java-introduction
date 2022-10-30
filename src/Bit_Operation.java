@@ -61,9 +61,8 @@ public class Bit_Operation {
 		if(checkNBit(nBit)) {
 			long mask = 1 << nBit;
 			return number ^ mask;
-		}else{
-			return -1;
 		}
 		
+		return -1;
 	}
 }
