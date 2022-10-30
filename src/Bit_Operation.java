@@ -39,13 +39,11 @@ public class Bit_Operation {
 		//TODO
 		
 		if(checkNBit(nBit)) {
+			long mask = 1 << nBit;
+			
 			if(value) {
-				long mask = 1 << nBit;
 				number |= mask;
-				
-				System.out.print("Digit = " + mask + "\n");
 			}else{
-				long mask = 1 << nBit;
 				number &= ~mask;
 			}
 			
