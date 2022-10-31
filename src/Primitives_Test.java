@@ -12,10 +12,12 @@ class Primitives_Test {
 		assertEquals(1, Bit_Operation.getBitValue(number, 2));	
 		assertEquals(1, Bit_Operation.getBitValue(number, 5));
 		assertEquals(0, Bit_Operation.getBitValue(number, 11));
+		assertEquals(-1, Bit_Operation.getBitValue(number, 100));
+		assertEquals(-1, Bit_Operation.getBitValue(number, -2));
 		
 		number = -1;
 		assertEquals(1, Bit_Operation.getBitValue(number, 63));
-		
+
 		number = Bit_Operation.negateBitValue(number, 63);
 		assertEquals(0, Bit_Operation.getBitValue(number, 63));
 	}

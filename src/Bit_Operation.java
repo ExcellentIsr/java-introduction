@@ -20,7 +20,7 @@ public class Bit_Operation {
 		
 		if(checkNBit(nBit)) {
 			long mask = 1 << nBit; // all bits are 0 except bit with number nBit
-			
+
 			if ((number & mask) == 0) {
 				res = 0;
 			}else {
