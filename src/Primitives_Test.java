@@ -5,6 +5,19 @@ import org.junit.jupiter.api.Test;
 class Primitives_Test {
 	
 	@Test
+	void happyNumberTest() {
+		
+		long number = 185491;
+		assertEquals(true, Numbers.happyNumber(number));
+		
+		number = 231555;
+		assertEquals(false, Numbers.happyNumber(number));
+
+		number = 200002;
+		assertEquals(true, Numbers.happyNumber(number));
+	}
+	
+	@Test
 	void getBitValueTest() {
 		long number = 0x3ab7f5; // 11_1010_1011_1011_0111_1111_0101
 		 
@@ -21,7 +34,7 @@ class Primitives_Test {
 		number = Bit_Operation.negateBitValue(number, 63);
 		assertEquals(0, Bit_Operation.getBitValue(number, 63));
 	}
-	
+
 	@Test
 	void setBitValueTest() {
 		long number = 0x3ab7f5; // 11_1010_1011_1011_0111_1111_0101

@@ -8,34 +8,64 @@ public class Bit_Operation {
 		//TODO
 		return (nBit >= 0 && nBit < 64);
 	}
+	private static long getMask(int nBit) {
+		return 1L << nBit;
+	}
 	static public int getBitValue(long number, int nBit) {
 		//TODO
 		int res = -1;
 		
 		if(checkNBit(nBit)) {
-			long mask = 1 << nBit;
+			long mask = getMask(nBit);
 
-			res = ((number & mask) == 0) ? res = 0 : 1;
+			res = ((number & mask) == 0) ? 0 : 1;
 		}
 		return res;
 	}
 	static public long setBitValue(long number, int nBit, boolean value) {
 		//TODO
+		long res = -1;
+		
 		if(checkNBit(nBit)) {
-			long mask = 1 << nBit;
+			long mask = getMask(nBit);
 			
-			number = (value) ? number = number | mask : number & ~mask;
+			res = (value) ? number | mask : number & ~mask;
 			
-			return number;
 		}
-		return -1;
+		return res;
 	}
 	static public long negateBitValue(long number, int nBit) {
 		//TODO
+		long res = -1;
+		
 		if(checkNBit(nBit)) {
-			long mask = 1 << nBit;
-			return (number ^ mask);
+			long mask = getMask(nBit);
+			res = (number ^ mask);
 		}
-		return -1;
+		return res;
+	}
+	static public int leadingZeros (long number) {
+		//TODO
+		int res = 0;
+		int nBit = 63;
+		
+		while(nBit >= 0 && getBitValue(number, nBit) == 0) {
+			nBit--;
+			res++;
+		}
+		
+		return res;
+	}
+	static public int onesInNumber (long number) {
+		//TODO
+		int res = 0;
+		
+		for(int i = 0; i < 63; i++) {
+			if(getBitValue(number, i) == 1) {
+				res++;
+			}
+		}
+		
+		return res;
 	}
 }
