@@ -12,8 +12,7 @@ public class Numbers {
 	
 	static public boolean happyNumber(long number) {
 		//TODO 
-		boolean flag = (getSumDigits(number % 1000) == getSumDigits((int) number / 1000)) ? true : false;
-		return flag;
+		return (getSumDigits(number % 1000) == getSumDigits((long) number / 1000)) ? true : false;
 	}
 	
 	static public int getSumDigits(long number) {
