@@ -13,7 +13,8 @@ public class SportLoto {
 	
 	static public void generateTicket() {
 		long row = 0;
-		System.out.print("Reapeat generation history: ");
+		countRepeat = 0;
+		System.out.print("Repeat generation history: ");
 		for(int i = 0; i < 6; i++) {
 			row += generateDigit(row, i) * (long) Math.pow(100, i);
 		}
@@ -43,7 +44,7 @@ public class SportLoto {
 		
 		do{
 			newDigit = (int)(min + Math.random()*(max - min + 1));
-			for(int j = 1; j < i+1; j++) {
+			for(int j = 0; j < i; j++) {
 				if((row % 100) == newDigit) {
 					isRepeat = true;
 					countRepeat++;
