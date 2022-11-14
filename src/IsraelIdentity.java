@@ -16,12 +16,11 @@ public class IsraelIdentity {
 	}
 
 	static public int generateRandomID() {
-		// TODO
 		int min = (int) Math.pow(10, 8);
 		int max = (int) Math.pow(10, 9);
 
 		int res = min + (int) (Math.random() * (max - min + 1));
-
+		
 		if (!verify(res)) {
 			int[] arrayId = intToArray(res, lengthOfNumber(res));
 			int sumDigits = numberСontrol(arrayId);
@@ -37,7 +36,6 @@ public class IsraelIdentity {
 	}
 
 	static public boolean verify(int id) {
-		// TODO
 		int sumDigits = numberСontrol(intToArray(id, lengthOfNumber(id)));
 		return sumDigits % 10 == 0 ? true : false;
 	}
