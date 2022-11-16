@@ -109,57 +109,28 @@ class Primitives_Test {
 	}
 
 	@Test
-	void bubbleSortTest() {
-		int array[] = { 27, 17, 2, -2, 0, 1, 5, 12 };
-		int array1[] = { 2, 1 };
-		int array2[] = { 2, 2, 1, 1 };
-		int array3[] = { 1 };
-		int array4[] = { 10, 10, 10, 0, 5 };
-		int array5[] = {};
-		assertArrayEquals(new int[] { -2, 0, 1, 2, 5, 12, 17, 27 }, MyArrays.bubbleSort(array));
-		assertArrayEquals(new int[] { 1, 2 }, MyArrays.bubbleSort(array1));
-		assertArrayEquals(new int[] { 1, 1, 2, 2 }, MyArrays.bubbleSort(array2));
-		assertArrayEquals(new int[] { 1 }, MyArrays.bubbleSort(array3));
-		assertArrayEquals(new int[] { 0, 5, 10, 10, 10 }, MyArrays.bubbleSort(array4));
-		assertArrayEquals(new int[] {}, MyArrays.bubbleSort(array5));
-	}
-
-	@Test
-	@Disabled
-	void isOneSwapForSortedTest() {
-		int ar1[] = { 10, 2, 3, 4, 1 };
-		int ar2[] = { 1, 2, 4, 3, 5, 10 };
-		int ar3[] = { 1, 2, 3, 10, 5, 4 };
-		int ar4[] = { 1, 5, 3, 4, 2, 10 };
-		int ar5[] = { 1, 2, 3, 4, 10, 5 };
-		int ar6[] = { 2, 1, -3, 4, 5, 10 };
-		int ar7[] = { 3, 2, 1, 4, 5, 6 };
-		assertTrue(MyArrays.isOneSwapForSorted(ar1));
-		assertTrue(MyArrays.isOneSwapForSorted(ar2));
-		assertTrue(MyArrays.isOneSwapForSorted(ar3));
-		assertTrue(MyArrays.isOneSwapForSorted(ar4));
-		assertTrue(MyArrays.isOneSwapForSorted(ar5));
-		assertTrue(MyArrays.isOneSwapForSorted(ar6));
-		assertTrue(MyArrays.isOneSwapForSorted(ar7));
-	}
-
-	@Test
 	void binarySearchTest() {
-		int index = 8;
-		int array[] = { 1, 10, 12, 13, 22, 24, 27 };
-		int array1[] = { 14 };
-		int array2[] = { 1, 2 };
-		int array3[] = { 8, 9, 11 };
-		int array4[] = { 2, 8, 8, 8, 10 };
-		int array5[] = { 2, 5, 8 };
-		assertEquals(-2, MyArrays.binarySearch(array, index));
-		assertEquals(-1, MyArrays.binarySearch(array1, index));
-		assertEquals(-3, MyArrays.binarySearch(array2, index));
-		assertEquals(0, MyArrays.binarySearch(array3, index));
-		assertEquals(1, MyArrays.binarySearch(array4, index));
-		assertEquals(2, MyArrays.binarySearch(array5, index));
+		int array[] = { 1,1,1,2,2,2,2,2,2,2,2,2,2,4,20,40 };
+		assertEquals(-14, MyArrays.binarySearch(array, 3));
+		assertEquals(3, MyArrays.binarySearch(array, 2));
+		assertEquals(-1, MyArrays.binarySearch(array, 0));
+		assertEquals(0, MyArrays.binarySearch(array, 1));
+		assertEquals(-16, MyArrays.binarySearch(array, 25));
+		assertEquals(-17, MyArrays.binarySearch(array, 45));
 	}
-
+	
+	@Test
+	void isSum2() {
+		short array[] = { 2,5,1,5,6,0 };
+		assertTrue(MyArrays.isSum2(array, (short)3));
+		assertTrue(MyArrays.isSum2(array, (short)2));
+		assertTrue(MyArrays.isSum2(array, (short)10));
+		assertTrue(MyArrays.isSum2(array, (short)11));
+		assertFalse(MyArrays.isSum2(array, (short)0));
+		assertFalse(MyArrays.isSum2(array, (short)4));
+		assertFalse(MyArrays.isSum2(array, (short)9));
+	}
+	
 	@Test
 	@Disabled
 	void IsraelIdentityTest() {

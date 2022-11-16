@@ -22,7 +22,6 @@ public class MyArrays {
 	}
 
 	static public int[] insertSorted(int[] arraySorted, int number) {
-		// TODO
 		// use the methods binarySearch of the standard class Arrays
 		// use standard class System, method ArrayCopy
 		// new array with inserted number at an index for keeping array sorted
@@ -66,35 +65,59 @@ public class MyArrays {
 		return -(low + 1);
 	}
 
-	static public boolean isOneSwapForSorted(int[] array) {
-		// TODO
-		return false;
-	}
-	
 	static boolean SORTED;
-	
+
 	static public int[] bubbleSort(int[] array) {
-		// TODO
 		if (array.length > 1) {
 			for (int i = 0; i < array.length; i++) {
 				SORTED = true;
 				for (int j = 0; j < array.length - 1; j++) {
 					moveGreaterRight(array, j);
 				}
-				if(SORTED) break;
+				if (SORTED)
+					break;
 			}
 		}
 		return array;
 	}
 
 	static private void moveGreaterRight(int[] array, int indexToSwap) {
-		// TODO
 		if (array[indexToSwap] > array[indexToSwap + 1]) {
 			int value = array[indexToSwap];
 			array[indexToSwap] = array[indexToSwap + 1];
 			array[indexToSwap + 1] = value;
-			
+
 			SORTED = false;
 		}
+	}
+
+	static public int[][] transp(int[][] matrix) {
+		// TODO
+		int[][] res = new int[matrix[0].length][matrix.length];
+
+		for (int i = 0; i < matrix[0].length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				res[i][j] = matrix[j][i];
+			}
+		}
+		return res;
+	}
+
+	static public boolean isSum2(short[] array, short sum) {
+		// TODO return true if array contains two numbers, sum of which equals a given
+		boolean res = false;
+		boolean[] isNumbers = new boolean[sum+1];
+		
+		for (int i = 0; i < array.length; i++) {
+			if(i != 0 && array[i] <= sum && isNumbers[sum - array[i]]) {
+				res = true;
+			}
+			
+			if(array[i] <= sum) {
+				isNumbers[array[i]] = true;
+			}
+		}
+		
+		return res;
 	}
 }
