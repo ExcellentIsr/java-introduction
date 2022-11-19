@@ -34,16 +34,10 @@ public class Strings {
 			helper[Integer.parseInt(str[i]) + 128]++;
 		}
 
-		for (int i = 0, j = 0; i < res.length; i++) {
-			boolean flag = false;
-			while (!flag) {
-				if (helper[j] != 0) {
-					res[i] = Integer.toString(j - 128);
-					helper[j]--;
-					flag = true;
-				} else {
-					j++;
-				}
+		int index = 0;
+		for (int i = 0; i < helper.length; i++) {
+			for (int j = 0; j < helper[j]; j++) {
+				res[index++] = Integer.toString(i - 128);
 			}
 		}
 
