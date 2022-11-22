@@ -1,6 +1,6 @@
 
 public class Strings {
-	
+
 	static public boolean isAnagram(String str, String anagram) {
 
 		boolean res = false;
@@ -8,16 +8,16 @@ public class Strings {
 
 		char[] strArray = str.toCharArray();
 		char[] anagramArray = anagram.toCharArray();
-		
+
 		if (str.length() == anagram.length()) {
 			res = true;
-			
+
 			for (int i = 0; i < strArray.length; i++) {
 				helper[(int) strArray[i]]++;
 				helper[(int) anagramArray[i]]--;
 			}
 			int index = 0;
-			while(index < helper.length && res) {
+			while (index < helper.length && res) {
 				if (helper[index] != 0) {
 					res = false;
 				} else {
@@ -45,16 +45,16 @@ public class Strings {
 
 		return res;
 	}
-	
+
 	static public String javaNameExp() {
 		return "[a-zA-Z$][\\w$]*|_[\\w]+";
 	}
-	
+
 	static public String ipV40ctet() {
 		return "[1-9]?[0-9]|1[\\d][\\d]|2[0-4][\\d]|25[0-5]";
 	}
-	
+
 	static public String ipV4() {
-		return "((" + ipV40ctet() + ")\\.){0,3}(" + ipV40ctet() +")$";
+		return "((" + ipV40ctet() + ")\\.){0,3}(" + ipV40ctet() + ")$";
 	}
 }

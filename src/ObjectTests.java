@@ -19,18 +19,16 @@ public class ObjectTests {
 	@Disabled
 	void sortStringNumbersTest() {
 		String[] array = { "127", "-40", "40", "1", "-5", "1", "0", "-5", "40", "-128", "-5", "127" };
-		assertArrayEquals(new String[] { "-128", "-40", "-5","-5", "-5", "0", "1", "1", "40", "40",  "127", "127" }, 
+		assertArrayEquals(new String[] { "-128", "-40", "-5", "-5", "-5", "0", "1", "1", "40", "40", "127", "127" },
 				Strings.sortStringNumbers(array));
-		
+
 		String[] array1 = { "127", "-128" };
-		assertArrayEquals(new String[] { "-128",  "127" }, 
-				Strings.sortStringNumbers(array1));
-		
-		String[] array2 = { };
-		assertArrayEquals(new String[] { }, 
-				Strings.sortStringNumbers(array2));
+		assertArrayEquals(new String[] { "-128", "127" }, Strings.sortStringNumbers(array1));
+
+		String[] array2 = {};
+		assertArrayEquals(new String[] {}, Strings.sortStringNumbers(array2));
 	}
-	
+
 	@Test
 	@Disabled
 	void javaNameExpTest() {
@@ -42,7 +40,7 @@ public class ObjectTests {
 		assertFalse("_".matches(Strings.javaNameExp()));
 		assertFalse("$ _".matches(Strings.javaNameExp()));
 	}
-	
+
 	@Test
 	void ipV40ctetTest() {
 		assertTrue("0".matches(Strings.ipV40ctet()));
@@ -55,7 +53,7 @@ public class ObjectTests {
 		assertFalse("256".matches(Strings.ipV40ctet()));
 		assertFalse("-155".matches(Strings.ipV40ctet()));
 	}
-	
+
 	@Test
 	void ipV4Test() {
 		assertTrue("0".matches(Strings.ipV4()));
@@ -71,7 +69,7 @@ public class ObjectTests {
 		assertTrue("1.200.5.50".matches(Strings.ipV4()));
 
 		assertFalse(".255.0.255".matches(Strings.ipV4()));
-		assertFalse("255.255.255.255.".matches(Strings.	ipV4()));
+		assertFalse("255.255.255.255.".matches(Strings.ipV4()));
 		assertFalse("0.0..0.0".matches(Strings.ipV4()));
 		assertFalse("0.0.0.256".matches(Strings.ipV4()));
 		assertFalse("".matches(Strings.ipV4()));
