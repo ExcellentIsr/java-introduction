@@ -1,25 +1,27 @@
 
 public class Strings {
+	
 	static public boolean isAnagram(String str, String anagram) {
 
 		boolean res = false;
-		byte[] helper = new byte[128];
+		byte[] helper = new byte[126];
 
 		char[] strArray = str.toCharArray();
 		char[] anagramArray = anagram.toCharArray();
-
-		if (anagram.length() != 0 && str.length() == anagram.length()) {
+		
+		if (str.length() == anagram.length()) {
 			res = true;
-
+			
 			for (int i = 0; i < strArray.length; i++) {
 				helper[(int) strArray[i]]++;
 				helper[(int) anagramArray[i]]--;
 			}
-
-			for (int i = 0; i < helper.length; i++) {
-				if (helper[i] != 0) {
+			int index = 0;
+			while(index < helper.length && res) {
+				if (helper[index] != 0) {
 					res = false;
-					break;
+				} else {
+					index++;
 				}
 			}
 		}
@@ -36,11 +38,23 @@ public class Strings {
 
 		int index = 0;
 		for (int i = 0; i < helper.length; i++) {
-			for (int j = 0; j < helper[j]; j++) {
+			for (int j = helper[i]; j > 0; j--) {
 				res[index++] = Integer.toString(i - 128);
 			}
 		}
 
 		return res;
+	}
+	
+	static public String javaNameExp() {
+		return "[a-zA-Z$][\\w$]*|_[\\w]+";
+	}
+	
+	static public String ipV40ctet() {
+		return "[1-9]?[0-9]|1[\\d][\\d]|2[0-4][\\d]|25[0-5]";
+	}
+	
+	static public String ipV4() {
+		return "((" + ipV40ctet() + ")\\.){0,3}(" + ipV40ctet() +")$";
 	}
 }
