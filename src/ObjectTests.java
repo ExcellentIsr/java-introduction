@@ -30,10 +30,10 @@ public class ObjectTests {
 	}
 
 	@Test
-	@Disabled
 	void javaNameExpTest() {
 		assertTrue("java".matches(Strings.javaNameExp()));
 		assertTrue("$".matches(Strings.javaNameExp()));
+		assertTrue("_$".matches(Strings.javaNameExp()));
 		assertTrue("__".matches(Strings.javaNameExp()));
 		assertTrue("java_1_2".matches(Strings.javaNameExp()));
 		assertFalse("1java".matches(Strings.javaNameExp()));
@@ -56,18 +56,18 @@ public class ObjectTests {
 
 	@Test
 	void ipV4Test() {
-		assertTrue("0".matches(Strings.ipV4()));
-		assertTrue("255".matches(Strings.ipV4()));
-		assertTrue("0.0".matches(Strings.ipV4()));
-		assertTrue("0.255".matches(Strings.ipV4()));
-		assertTrue("255.0".matches(Strings.ipV4()));
-		assertTrue("0.0.0".matches(Strings.ipV4()));
 		assertTrue("255.255.255.255".matches(Strings.ipV4()));
-		assertTrue("255.0.255".matches(Strings.ipV4()));
 		assertTrue("0.0.0.0".matches(Strings.ipV4()));
 		assertTrue("15.155.115.51".matches(Strings.ipV4()));
 		assertTrue("1.200.5.50".matches(Strings.ipV4()));
 
+		assertFalse("0".matches(Strings.ipV4()));
+		assertFalse("255".matches(Strings.ipV4()));
+		assertFalse("0.0".matches(Strings.ipV4()));
+		assertFalse("0.255".matches(Strings.ipV4()));
+		assertFalse("255.0".matches(Strings.ipV4()));
+		assertFalse("0.0.0".matches(Strings.ipV4()));
+		assertFalse("255.0.255".matches(Strings.ipV4()));
 		assertFalse(".255.0.255".matches(Strings.ipV4()));
 		assertFalse("255.255.255.255.".matches(Strings.ipV4()));
 		assertFalse("0.0..0.0".matches(Strings.ipV4()));

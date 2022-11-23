@@ -47,14 +47,14 @@ public class Strings {
 	}
 
 	static public String javaNameExp() {
-		return "[a-zA-Z$][\\w$]*|_[\\w]+";
+		return "[a-zA-Z$][\\w$]*|_[\\w$]+";
 	}
 
 	static public String ipV40ctet() {
-		return "[1-9]?[0-9]|1[\\d][\\d]|2[0-4][\\d]|25[0-5]";
+		return "[1-9]?[0-9]|1\\d\\d|2[0-4]\\d|25[0-5]";
 	}
 
 	static public String ipV4() {
-		return "((" + ipV40ctet() + ")\\.){0,3}(" + ipV40ctet() + ")$";
+		return "((" + ipV40ctet() + ")\\.){3}(" + ipV40ctet() + ")$";
 	}
 }
