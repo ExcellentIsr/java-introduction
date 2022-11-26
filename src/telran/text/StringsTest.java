@@ -23,6 +23,7 @@ class StringsTest {
 	}
 	@Test
 	void computeExpressionTest() {
+		assertEquals(2, computeArithmenticExpression("	2", null, null));
 		assertEquals(10.5, computeArithmenticExpression("2 + 2 + 1 * 2 + 0.5", null, null));
 		assertEquals(10.5, computeArithmenticExpression("((a + d) + (c * e + b))", new double[] {2, 0.5, 1, 2, 2}, new String[] {"a", "b", "c", "d", "e"}));
 		assertEquals(10.5, computeArithmenticExpression("((a + 2) + c * 2 + b)", new double[] {2, 0.5, 1}, new String[] {"a", "b", "c"}));
