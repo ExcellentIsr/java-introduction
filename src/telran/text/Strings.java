@@ -112,7 +112,7 @@ public class Strings {
 
 	private static String operator() {
 
-		return "([-+*/])";
+		return "([-+*/%])";
 	}
 
 	/**
@@ -154,6 +154,9 @@ public class Strings {
 				break;
 			case "/":
 				res = operand1 / operand2;
+				break;
+			case "%":
+				res = operand1 % operand2;
 				break;
 			default:
 				res = Double.NaN;
